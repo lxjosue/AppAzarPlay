@@ -42,4 +42,8 @@ Marketing promocional
 Josué Lacroix
 GitHub: https://github.com/lxjosue
 
+## 📲 Descargar APK
 
+Podés descargar la app desde acá:
+
+👉 https://github.com/lxjosue/AppAzarPlay/releases
