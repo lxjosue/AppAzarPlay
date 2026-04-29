@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    x:Class="AppSorteoMobile.MainPage"
+    BackgroundColor="DarkSlateBlue">
+
+    <AbsoluteLayout>
+
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            VerticalScrollBarVisibility="Always">
+            
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <Label Text="🎲 AzarPlay"
+                 FontSize="40"
+                 FontAttributes="Bold"
+                 TextColor="White"
+                 FontFamily="OpenSansBold"
+                 HorizontalOptions="Center"/>
+
+                <Border BackgroundColor="#1E1E2F"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="15">
+
+                    <VerticalStackLayout Spacing="20">
+
+                        <Entry x:Name="txtNumeros"
+                           Placeholder="Ingrese la Cantidad de Números. (Obligatorio)*"
+                           Keyboard="Numeric"
+                           TextColor="White"
+                           PlaceholderColor="#888"/>
+
+                        <Entry x:Name="txtGanadores"
+                           Placeholder="Ingrese la Cantidad de Sorteados. (Obligatorio)*"
+                           Keyboard="Numeric"
+                           TextColor="White"
+                           PlaceholderColor="#888"/>
+
+                        <Entry x:Name="txtMinRepeticiones"
+                           Placeholder="Ingrese las Repeticiones Para Ganar. (opcional)"
+                           Keyboard="Numeric"
+                           TextColor="White"
+                           PlaceholderColor="#888"/>
+
+                        <Button Text="🎰 SORTEAR"
+                            Clicked="OnSortearClicked"
+                            BackgroundColor="SeaGreen"
+                            TextColor="White"
+                            CornerRadius="15"
+                            HeightRequest="50"
+                            FontSize="20"/>
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border BackgroundColor="#1E1E2F"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="15">
+
+                    <Label x:Name="lblResultado"
+                           FontSize="18"
+                           LineBreakMode="WordWrap"/>
+
+                </Border>
+
+
+                <Border BackgroundColor="#1E1E2F"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="15">
+
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label Text="📜 Historial"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontSize="16"/>
+
+                        <Label x:Name="lblHistorial"
+                               TextColor="White"
+                               FontSize="16"/>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <Grid ColumnDefinitions="Auto,*" VerticalOptions="Center">
+
+                    <Switch x:Name="swAcumular" IsToggled="True"/>
+                    <Label Grid.Column="1"
+                       Text="Acumular números"
+                       TextColor="LightCyan"
+                       VerticalTextAlignment="Center"/>
+
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*">
+
+                    <Switch x:Name="swRepetidos" IsToggled="True"/>
+                    <Label Grid.Column="1"
+                       Text="Permitir repetidos"
+                       TextColor="LightCyan"
+                       VerticalTextAlignment="Center"/>
+
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*">
+
+                    <Switch x:Name="swEvento"/>
+                    <Label Grid.Column="1"
+                       Text="Modo Streaming"
+                       TextColor="OrangeRed"
+                       VerticalTextAlignment="Center"/>
+
+                </Grid>
+
+                <Border BackgroundColor="#1E1E2F"
+        StrokeShape="RoundRectangle 20"
+        Padding="15">
+
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label Text="🛠 Acciones"
+               TextColor="White"
+               FontAttributes="Bold"/>
+
+                        <Button Text="🧹 Limpiar N° Ingresados"
+                BackgroundColor="Gray"
+                TextColor="White"
+                Clicked="OnResetInputs"/>
+
+                        <Button Text="🗑 Borrar Historial"
+                BackgroundColor="DarkRed"
+                TextColor="White"
+                Clicked="OnResetHistorial"/>
+
+                        <Button Text="🏆 Resetear Top Repetidos"
+                BackgroundColor="DarkOrange"
+                TextColor="White"
+                Clicked="OnResetTop"/>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!--  CAPA CONFETTI -->
+        <AbsoluteLayout x:Name="confettiLayer"
+                    InputTransparent="True"/>
+
+    </AbsoluteLayout>
+
+</ContentPage>
